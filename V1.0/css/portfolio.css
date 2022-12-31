@@ -1,0 +1,80 @@
+/* start global rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    font-family: "worksans", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* end global rules */
+/* start media*/
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* end media*/
+/*home page*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+nav {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;سصييص
+    margin-left: auto;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
+nav .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+nav .mainnav {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+nav .mainnav li {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 26px;
+}
+nav .mainnav li.hide {
+    display: none;
+}
