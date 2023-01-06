@@ -147,7 +147,7 @@ nav .mainnav li i {
     height: calc(16% + 5px);
     position: absolute;
     left: 0;
-    bottom: -1px;
+    bottom: -9px;
     width: 100%;
     fill: #ffffff;
 }
