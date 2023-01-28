@@ -3,10 +3,11 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-html,
-body {
+html {
     scroll-behavior: smooth;
     height: 100%;
 }
@@ -15,6 +16,8 @@ body {
     font-family: 'work-sans', sans-serif ,'open sans';
     padding: 0;
     margin: 0;
+    min-height: 100%;
+    min-width: fit-content;
 }
 .container {
     padding-left: 15px;
@@ -38,17 +41,17 @@ body {
     .container {
         width: 1170px;
     }
-}
+} 
 /* end media*/
-/*home page*/
-
+/*section landing*/
 .top{
     height: 100vh;
     background-color: black;
+    min-height: 690px;
 }
-.header {
+.section {
     position: relative;
-    top: 23px;
+    height: 60px;
     z-index: 2;
 }
 nav {
@@ -56,17 +59,14 @@ nav {
     padding-left: 14%;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    align-content: center;
     border-color: rgba(255,255,255,0.1);
     border-width: 0 0 1px;
     border-style: solid;
     line-height: 17px;
-}
-nav ul li :hover{
-    color: darkgrey;
-    border-bottom: #ffffff solid 1px;
-    transition: ease-out 0.3s;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    z-index: 2;
 }
 nav a {
     text-decoration: none;
@@ -79,51 +79,133 @@ nav .logo {
     height: 25px;
     display: flex;
     color: #ffffff;
-    align-items: flex-end;
+    transition: ease-out 500ms;
+    transform: translateY(22px);
+    align-items: center;
+}
+nav .logo:hover {
+    color: darkgrey;
 }
 nav .mainnav {
     list-style: none;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     color: #ffffff;
     font-family: 'open sans';
     font-size: 12px;
     font-weight: 600;
     height: 23px;
+    padding: 0;
+    transform: translateY(22px);
 }
 nav .mainnav li {
     margin-right: 26px;
     text-transform: uppercase;
+    transition: 500ms ease-in-out;
 }
-nav .mainnav li a.active {
+nav .mainnav li :hover{
     color: darkgrey;
-    border-bottom: #ffffff solid 1px;
-    transition: ease-out 0.3s;
-}
-.background {
-    background-image: url(./img/bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100%;
-    position: relative;
-    bottom: 40px;
-    opacity: 0.5;
+    transition: 500ms ease-in-out;
 }
 nav .mainnav li i {
     font-size: 11px;
 }
+nav .mainnav li a.active {
+    color: darkgrey;
+    transition: 500ms ease-in-out;
+}
+.icon {
+    position: absolute;
+    height: 41px;
+    width: 56px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    left: 0;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    top: 27%;
+}
+.icon .burger {
+    width: 100%;
+    height: 114%;
+    transition: 500ms cubic-bezier(0.4, 0, 1, 1);
+}
+.active .burger {
+    transform: rotate(90deg)
+}
+.line {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 6;
+    stroke-miterlimit: 10;
+}
+.x{ 
+    stroke-dasharray: 50;
+    stroke-dashoffset: -33;
+    transition: 700ms cubic-bezier(1, -1.57, 0.24, 2.06);
+}
+
+
+/* if i will change the background color*/
+/*.active::before{
+    content: " ";
+    position: relative;
+    background-color: #2f1b41;
+    width: 83%;
+    height: 110%;
+    top: 47px;
+    left: 6px;
+    border-radius: 22px;
+}*/
+
+
+.active .x{
+    stroke-dasharray: 110;
+    stroke-dashoffset: -113;}
+.c {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 6;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 0 360;
+    transition: 500ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+.active .c {
+    stroke-dasharray: 362;
+}
+.a{
+    transition: 500ms ease-in-out;
+}
+.active .a{
+    transform: translateX(357px) translateY(-245px) rotate3d(1, 1, 2, 54deg);
+}
+.b{
+    transition: 500ms ease;
+}
+.active .b{
+    transform: translateY(530px) translateX(-74px) rotate3d(1, 0, 2, -57deg) translateZ(-17px);
+}
+
+.background {
+    background-image: url(./img/Admiring\ the\ sunset\ while\ working\ from\ home.png);
+    background-repeat: no-repeat;
+    background-position: center 56%;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    opacity: 0.5;
+}
 .landing {
     height: 100%;
+    min-height: 700px;
 }
 .landing .text {
-    position: absolute;
-    top: 41%;
-    right: 36%;
+    transform: translateY(-427px);
     color: white;
     display: flex;
     flex-direction: column;
-    align-content: center;
     justify-content: center;
     align-items: center;
 }
@@ -137,21 +219,116 @@ nav .mainnav li i {
 .landing .text p {
     font-size: 24px;
     color: #ffffffad;
+    transform: translateY(49px);
 }
 .landing .text span {
     content: " ";
-    position: absolute;
     border-style: solid;
-    top: 54%;
-    left: 38%;
+    transform: translateY(22px);
     border-width: 0px 46px 3px;
-    border-color: #2f1b41;
+    border-color: #5a1397;
+}
+section .wave {
+    position: relative;
+    width: 100%;
 }
 section .shapebottom{
-    height: calc(16% + 5px);
+    height: calc(105% + 111px);
     position: absolute;
     left: 0;
-    bottom: -9px;
+    bottom: 0;
     width: 100%;
     fill: #ffffff;
 }
+/*end of landing section*/
+/* landing responsive */
+
+@media (max-width: 312px) {
+    nav a.logo {
+        display: none;
+    }
+    nav {
+        justify-content: flex-end;
+        padding: 0;
+    }
+}
+@media (max-width: 768px) {
+    nav{
+        border: none;
+    }
+    section nav .mainnav {
+        display: none;
+    }
+    nav .logo {
+        color: #000000;
+        margin: auto;
+        font-size: 14px;
+        transform: translateY(-5px);
+    }
+}
+@media (max-width: 980px) {
+    nav {
+        padding-right: 3%;
+        padding-left: 2%;
+    }
+}
+    @media (max-width: 768px) {
+        nav {
+        padding-left: 14%;
+        background-color: #ffffff;
+    }
+    }
+@media (max-width: 768px) {
+    nav .inmob {
+        display: flex;
+        padding: 0;
+        transform: translateY(19px);
+        height: 29px;
+    }
+nav .show {
+    display: flex;
+    transform: translateY(10px);
+    margin-right: 26px;
+    text-transform: uppercase;
+    transition: 500ms ease-in-out;
+}
+nav .show i {
+    color: #000000;
+    font-size: 13px;
+}
+nav .inmob .show :hover {
+    color: darkgrey;
+    transition: 500ms ease-in-out;
+}
+section nav .mainnav.open {
+    background-color: #2f1b41;
+    display: grid;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    padding-bottom: 206px;
+    padding-right: 96px;
+    margin: auto;
+}
+section nav .mainnav.open li {
+    padding-bottom: 19px;
+    transform: translate(56px, 8px);
+}
+}
+@media (min-width: 769px) {
+    section .icon{
+        display: none;
+    }
+    nav .inmob {
+        display: none;
+    }
+}
+    @media (max-width: 500px) {
+        .landing .text p {
+            font-size: 17px;
+        }
+            .landing .text h1 {
+                font-size: 30px;
+            }
+    }
+    /*end of landing responsive*/
