@@ -42,6 +42,12 @@ body {
         width: 1170px;
     }
 } 
+:root {
+    --main-color: #2f1b41;
+    --text: #ffffff;
+    --mob-text : #000000;
+    --bg : #fdf5e6;
+}
 /* end media*/
 /*section landing*/
 .top{
@@ -67,10 +73,11 @@ nav {
     height: 80px;
     position: fixed;
     z-index: 2;
+    transition: ease-in 300ms;
 }
 nav a {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--text);
 }
 nav .logo {
     font-family: 'Open Sans';
@@ -78,7 +85,7 @@ nav .logo {
     font-weight: 600;
     height: 25px;
     display: flex;
-    color: #ffffff;
+    color: var(--text);
     transition: ease-out 500ms;
     transform: translateY(22px);
     align-items: center;
@@ -91,7 +98,6 @@ nav .mainnav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    color: #ffffff;
     font-family: 'open sans';
     font-size: 12px;
     font-weight: 600;
@@ -106,14 +112,12 @@ nav .mainnav li {
 }
 nav .mainnav li :hover{
     color: darkgrey;
-    transition: 500ms ease-in-out;
 }
 nav .mainnav li i {
     font-size: 11px;
 }
 nav .mainnav li a.active {
     color: darkgrey;
-    transition: 500ms ease-in-out;
 }
 .icon {
     position: absolute;
@@ -137,7 +141,7 @@ nav .mainnav li a.active {
 }
 .line {
     fill: none;
-    stroke: #000000;
+    stroke: var(--mob-text);
     stroke-width: 6;
     stroke-miterlimit: 10;
 }
@@ -146,27 +150,12 @@ nav .mainnav li a.active {
     stroke-dashoffset: -33;
     transition: 700ms cubic-bezier(1, -1.57, 0.24, 2.06);
 }
-
-
-/* if i will change the background color*/
-/*.active::before{
-    content: " ";
-    position: relative;
-    background-color: #2f1b41;
-    width: 83%;
-    height: 110%;
-    top: 47px;
-    left: 6px;
-    border-radius: 22px;
-}*/
-
-
 .active .x{
     stroke-dasharray: 110;
     stroke-dashoffset: -113;}
 .c {
     fill: none;
-    stroke: #000000;
+    stroke: var(--mob-text);
     stroke-width: 6;
     stroke-miterlimit: 10;
     stroke-dasharray: 0 360;
@@ -191,7 +180,7 @@ nav .mainnav li a.active {
 .background {
     background-image: url(./img/Admiring\ the\ sunset\ while\ working\ from\ home.png);
     background-repeat: no-repeat;
-    background-position: center 56%;
+    background-position: center 52%;
     background-size: cover;
     height: 100%;
     position: relative;
@@ -202,8 +191,8 @@ nav .mainnav li a.active {
     min-height: 700px;
 }
 .landing .text {
-    transform: translateY(-427px);
-    color: white;
+    transform: translateY(-550px);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -226,7 +215,7 @@ nav .mainnav li a.active {
     border-style: solid;
     transform: translateY(22px);
     border-width: 0px 46px 3px;
-    border-color: #5a1397;
+    border-color: var(--main-color);
 }
 section .wave {
     position: relative;
@@ -236,9 +225,9 @@ section .shapebottom{
     height: calc(105% + 111px);
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -10px;
     width: 100%;
-    fill: #ffffff;
+    fill: var(--bg);
 }
 /*end of landing section*/
 /* landing responsive */
@@ -260,7 +249,7 @@ section .shapebottom{
         display: none;
     }
     nav .logo {
-        color: #000000;
+        color: var(--mob-text);
         margin: auto;
         font-size: 14px;
         transform: translateY(-5px);
@@ -275,7 +264,7 @@ section .shapebottom{
     @media (max-width: 768px) {
         nav {
         padding-left: 14%;
-        background-color: #ffffff;
+        background-color: var(--text);
     }
     }
 @media (max-width: 768px) {
@@ -293,31 +282,91 @@ nav .show {
     transition: 500ms ease-in-out;
 }
 nav .show i {
-    color: #000000;
+    color: var(--mob-text);
     font-size: 13px;
 }
 nav .inmob .show :hover {
     color: darkgrey;
     transition: 500ms ease-in-out;
 }
-section nav .mainnav.open {
-    background-color: #2f1b41;
-    display: grid;
+section nav .open {
+    background-color: var(--main-color);
+    display: flex;
     position: absolute;
-    top: -10px;
-    left: 0;
-    padding-bottom: 206px;
-    padding-right: 96px;
+    top: 80px;
+    left: 0px;
     margin: auto;
+    transition: all 500ms ease;
+    letter-spacing: 1px;
+    height: 0%;
+    width: 24px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 4px;
+    box-shadow: 0 5px 12px 0 rgb(0 0 0);
 }
-section nav .mainnav.open li {
-    padding-bottom: 19px;
-    transform: translate(56px, 8px);
+section nav .open a{
+    color: var(--text);
+}
+section nav .open a.active{
+    color: var(--mob-text);
+}
+section nav .open li:nth-child(1){
+    padding: 17px 34px;
+} 
+section nav .open li:nth-child(2){
+    padding: 17px 15px;
+}
+section nav .open li:nth-child(4){
+    border: none;
+} 
+section nav .open.list {
+    height: 323%;
+    width: 147px;
+}
+section nav .open li {
+
+    transform: translate(-19px);
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 17px 24px;
+    border-bottom: 2px solid #494949;
+    /* display: none; */
+}    
+section nav .open li.drop {
+    display: flex;
 }
 }
 @media (min-width: 769px) {
-    section .icon{
+    section .icon , nav .open {
         display: none;
+    }
+    section nav.bgColor {
+        transition: ease-in 300ms;
+        background-color: var(--text);
+        height: 60px;
+        box-shadow: rgb(0 0 0 / 35%) 0px 2px 12px 2px;
+    }
+    section nav.bgColor a {
+        color: var(--mob-text);
+    }
+    section nav.bgColor li a.active {
+        color: var(--text);
+        border-radius: 18px;
+        background-color: var(--main-color);
+        border: solid;
+        border-width: 5px 17px;
+        border-color: var(--main-color);
+    }
+    section nav.bgColor a:hover {
+        color: var(--text);
+        border-radius: 18px;
+        background-color: var(--main-color);
+        border: solid;
+        border-width: 5px 17px;
+        border-color: var(--main-color);
     }
     nav .inmob {
         display: none;
@@ -332,3 +381,48 @@ section nav .mainnav.open li {
             }
     }
     /*end of landing responsive*/
+    /* about me section */
+    .aboutme{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 10px;
+    background-color: var(--bg);
+    padding-top: 100px;
+    }
+    .aboutme .head-text{
+        position: relative;
+        display: grid;
+        justify-items: center;
+    }
+    .aboutme .head-text span {
+    border: var(--main-color) solid;
+    border-width: 3px 27px 0;
+    transform: translateY(25px);
+    }
+    .aboutme .head-text h2 {
+    text-transform: uppercase;
+    font-weight: 300;
+    color: var(--mob-text);
+    font-family: 'Open Sans';
+    }
+    .aboutme .me-info {
+    display: grid;
+    justify-items: center;
+    position: relative;
+    top: 7%;
+    }
+    .aboutme .me-info img {
+        height: 250px;
+    }
+    .me-info h4 {
+        margin-top: 30px;
+    }
+    .me-info span {
+        border: var(--main-color) solid;
+        transform: translateY(4px);
+        border-width: 2px 47px;
+    }
+    .me-info p {
+        transform: translateY(21px);
+    }
