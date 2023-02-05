@@ -305,6 +305,7 @@ section nav .open {
     justify-content: space-around;
     border-radius: 4px;
     box-shadow: 0 5px 12px 0 rgb(0 0 0);
+    overflow: hidden;
 }
 section nav .open a{
     color: var(--text);
@@ -326,14 +327,12 @@ section nav .open.list {
     width: 147px;
 }
 section nav .open li {
-
     transform: translate(-19px);
     list-style: none;
     text-transform: uppercase;
     font-size: 15px;
     padding: 17px 24px;
     border-bottom: 2px solid #494949;
-    /* display: none; */
 }    
 section nav .open li.drop {
     display: flex;
@@ -349,7 +348,7 @@ section nav .open li.drop {
         height: 60px;
         box-shadow: rgb(0 0 0 / 35%) 0px 2px 12px 2px;
     }
-    section nav.bgColor a {
+    section nav.bgColor  a {
         color: var(--mob-text);
     }
     section nav.bgColor li a.active {
@@ -360,7 +359,7 @@ section nav .open li.drop {
         border-width: 5px 17px;
         border-color: var(--main-color);
     }
-    section nav.bgColor a:hover {
+    section nav.bgColor ul a:hover {
         color: var(--text);
         border-radius: 18px;
         background-color: var(--main-color);
