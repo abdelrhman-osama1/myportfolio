@@ -38,7 +38,9 @@ function changeBg() {
 }
 window.addEventListener("scroll", changeBg);
 
-const li=document.querySelectorAll("nav ul li a");
+// add class active on every section in big screens 
+
+const li=document.querySelectorAll("nav .mainnav li a");
 const sec=document.querySelectorAll("section");
 
 window.addEventListener('scroll', () => {
@@ -51,25 +53,26 @@ window.addEventListener('scroll', () => {
     });
     li.forEach(li => {
         li.classList.remove('active');
-        document.querySelector('nav ul li a[href*= '+ current +']').classList.add('active');
+        document.querySelector('nav .mainnav li a[href*= '+ current +']').classList.add('active');
     });
     });
 
+// add class active on every section in small screens
 
-    const span=document.querySelectorAll("nav ul span li a");
+    const span=document.querySelectorAll("nav .open li a");
 const section=document.querySelectorAll("section");
 
 window.addEventListener('scroll', () => {
     let current = '';
     section.forEach(section => {
         let sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 200){
+        if (scrollY >= sectionTop - 300){
             current = section.getAttribute('id');
         }
     });
     span.forEach(span => {
         span.classList.remove('active');
-        document.querySelector('nav ul span li a[href*= '+ current +']').classList.add('active');
+        document.querySelector('nav .open li a[href*= '+ current +']').classList.add('active');
     });
     });
 
