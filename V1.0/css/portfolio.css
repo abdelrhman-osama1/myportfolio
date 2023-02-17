@@ -19,15 +19,15 @@ body {
     min-height: 100%;
     min-width: fit-content;
 }
-/* .container {
+.container {
     padding-left: 15px;
     padding-right: 15px;
     margin-left: auto;
     margin-right: auto;
-} */
+} 
 /* end global rules */
 /* start media*/
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
     .container {
         width: 750px;
     }
@@ -41,13 +41,13 @@ body {
     .container {
         width: 1170px;
     }
-} */ 
+}
 :root {
     --main-color: #2f1b41;
     --text: #ffffff;
     --mob-text : #000000;
     --bg : #fdf5e6;
-    --hover:#6c6a6a;
+    --hover:#c4c4c4;
 }
 /* end media*/
 /*section landing*/
@@ -56,10 +56,19 @@ body {
     background-color: black;
     min-height: 690px;
 }
-.section {
-    position: relative;
-    height: 60px;
-    z-index: 2;
+.top {
+    background-image: url(./img/Admiring\ the\ sunset\ while\ working\ from\ home.png);
+    background-repeat: no-repeat;
+    background-position: center 52%;
+    background-size: cover;
+}
+.overlay{
+    content:" ";
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
 }
 nav {
     padding-right: 14%;
@@ -112,6 +121,7 @@ nav .mainnav li {
     transition: 500ms ease-in-out;
 }
 nav .mainnav li :hover{
+    transition: ease 500ms;
     color: var(--hover);
 }
 nav .mainnav li i {
@@ -178,26 +188,19 @@ nav .mainnav li a.active {
     transform: translateY(530px) translateX(-74px) rotate3d(1, 0, 2, -57deg) translateZ(-17px);
 }
 
-.background {
-    background-image: url(./img/Admiring\ the\ sunset\ while\ working\ from\ home.png);
-    background-repeat: no-repeat;
-    background-position: center 52%;
-    background-size: cover;
-    height: 100%;
-    position: relative;
-    opacity: 0.5;
-}
 .landing {
     height: 100%;
     min-height: 700px;
 }
 .landing .text {
-    transform: translateY(-550px);
     color: var(--text);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 90%;
+    flex-direction: column;
+    z-index: 1;
+    position: relative;
 }
 .landing .text h1 {
     text-transform: capitalize;
@@ -246,7 +249,7 @@ section .shapebottom{
     nav{
         border: none;
     }
-    section nav .mainnav {
+    nav .mainnav {
         display: none;
     }
     nav .logo {
@@ -290,7 +293,7 @@ nav .inmob .show :hover {
     color: darkgrey;
     transition: 500ms ease-in-out;
 }
-section nav .open {
+nav .open {
     background-color: var(--main-color);
     display: flex;
     position: absolute;
@@ -308,26 +311,26 @@ section nav .open {
     box-shadow: 0 5px 12px 0 rgb(0 0 0);
     overflow: hidden;
 }
-section nav .open a{
+nav .open a{
     color: var(--text);
 }
-section nav .open a.active{
+nav .open a.active{
     color: var(--hover);
 }
-section nav .open li:nth-child(1){
+nav .open li:nth-child(1){
     padding: 17px 34px;
 } 
-section nav .open li:nth-child(2){
+nav .open li:nth-child(2){
     padding: 17px 15px;
 }
-section nav .open li:nth-child(4){
+nav .open li:nth-child(4){
     border: none;
 } 
-section nav .open.list {
+nav .open.list {
     height: 323%;
     width: 147px;
 }
-section nav .open li {
+nav .open li {
     transform: translate(-19px);
     list-style: none;
     text-transform: uppercase;
@@ -337,19 +340,19 @@ section nav .open li {
 }    
 }
 @media (min-width: 769px) {
-    section .icon , nav .open {
+    .icon , nav .open {
         display: none;
     }
-    section nav.bgColor {
+    nav.bgColor {
         transition: ease-in 300ms;
         background-color: var(--text);
         height: 60px;
         box-shadow: rgb(0 0 0 / 35%) 0px 2px 12px 2px;
     }
-    section nav.bgColor a {
+    nav.bgColor a {
         color: var(--mob-text);
     }
-    section nav.bgColor li a.active {
+    nav.bgColor li a.active {
         color: var(--text);
         border-radius: 18px;
         background-color: var(--main-color);
@@ -357,7 +360,7 @@ section nav .open li {
         border-width: 5px 17px;
         border-color: var(--main-color);
     }
-    section nav.bgColor ul a:hover {
+    nav.bgColor ul a:hover {
         color: var(--text);
         border-radius: 18px;
         background-color: var(--main-color);
@@ -393,15 +396,14 @@ section nav .open li {
         position: relative;
         display: grid;
         justify-items: center;
+        padding-bottom: 22px;
     }
     .aboutme .head-text span {
     border: var(--main-color) solid;
     border-width: 3px 27px 0;
-    transform: translateY(25px);
     }
-    .aboutme .head-text h2 {
+    .aboutme .head-text h4 {
     text-transform: uppercase;
-    font-weight: 300;
     color: var(--mob-text);
     font-family: 'Open Sans';
     }
@@ -469,6 +471,12 @@ section nav .open li {
     padding-right: 15px;
     padding-left: 15px;
 }
+.items h4 {
+    font-size: 21px;
+    margin-top: 15px;
+    font-weight: 600;
+    font-family: 'Open Sans';
+}
 .column p {
     margin: auto;
 }
@@ -482,10 +490,4 @@ section nav .open li {
     padding-top: 100px;
     padding-bottom: 100px;
     position: relative;
-}
-#contact .test {
-    background-image: linear-gradient(red,black);
-    position: absolute;
-    width: 100%;
-    height: 100vh;
 }
