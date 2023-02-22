@@ -29,7 +29,14 @@ crossorigin="anonymous"></script>
         <li><a href="#contact"> contact</a></li>
         <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
         <li><a href="#"><i class="fa-solid fa-phone"></i></a></li>
+
+            <li class="arrow">lang<i class="fa-solid fa-sort-down"></i></li>
+            <ul class="lang">
+            <li><a href="index-rtl.html">ar</a></li>
+            <li><a href="index.html">en</a></li>
+            </ul>
     </ul>
+    
     <ul class="open">
         <li><a href="#home">home</a></li>
         <li><a href="#about">about me</a></li>
@@ -72,7 +79,7 @@ viewBox="0 0 100 100" preserveAspectRatio="none">
     <span></span>
 </div>
     <div class="me-info">
-        <img src="/css/img/me.png" alt="photo">
+        <img src="css/img/me.png" alt="photo">
         <h4>abdelrhman osama</h4>
         <span></span>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis explicabo, laudantium fuga unde autem dicta commodi totam nulla vel culpa.</p>
@@ -129,12 +136,12 @@ viewBox="0 0 100 100" preserveAspectRatio="none">
                 </div>
             <div class="form">
                 <div class="space">
-                <input type="text" placeholder="name" id="name">
-                <input type="number" placeholder="phone">
+                <input type="text" placeholder="name" id="name" dir="auto">
+                <input type="number" placeholder="phone" dir="auto">
             </div>
                 <input type="email" placeholder="email address">
-                <textarea name="contact_message" placeholder="message"></textarea><br>
-                <button>contact us</button>
+                <textarea name="contact_message" placeholder="message" dir="auto"></textarea><br>
+                <button>contact me</button>
             </div>
         </div>
         </div>
@@ -159,6 +166,7 @@ viewBox="0 0 100 100" preserveAspectRatio="none">
                 </li>
             </ul>
     </footer>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>

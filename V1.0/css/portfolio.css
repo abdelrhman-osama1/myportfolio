@@ -75,10 +75,9 @@ body {
     opacity: 0.5;
 }
 nav {
-    padding-right: 14%;
-    padding-left: 14%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     border-color: rgba(255,255,255,0.1);
     border-width: 0 0 1px;
     border-style: solid;
@@ -97,11 +96,9 @@ nav .logo {
     font-family: 'Open Sans';
     font-size: 23px;
     font-weight: 600;
-    height: 25px;
-    display: flex;
+    height: 45%;
     color: var(--text);
     transition: ease-out 500ms;
-    transform: translateY(22px);
     align-items: center;
 }
 nav .logo:hover {
@@ -110,14 +107,10 @@ nav .logo:hover {
 nav .mainnav {
     list-style: none;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     font-family: 'open sans';
     font-size: 12px;
     font-weight: 600;
-    height: 23px;
-    padding: 0;
-    transform: translateY(22px);
 }
 nav .mainnav li {
     margin-right: 26px;
@@ -134,6 +127,23 @@ nav .mainnav li i {
 nav .mainnav li a.active {
     color: var(--hover);
 }
+.arrow {
+    cursor: pointer;
+    color: var(--text);
+}
+.mainnav .arrow i{
+    font-size: 15px;
+    margin-left: 5px;
+}
+.lang {
+    position: absolute;
+    display: none;
+    transform: translate(420px, 27px);
+    background-color: var(--main-color);
+}
+.lan {
+    display: grid;
+} 
 .icon {
     position: absolute;
     height: 41px;
@@ -144,7 +154,6 @@ nav .mainnav li a.active {
     left: 0;
     align-content: flex-end;
     flex-wrap: wrap;
-    top: 27%;
 }
 .icon .burger {
     width: 100%;
@@ -244,10 +253,6 @@ section .shapebottom{
     nav a.logo {
         display: none;
     }
-    nav {
-        justify-content: flex-end;
-        padding: 0;
-    }
 }
 @media (max-width: 768px) {
     nav{
@@ -260,26 +265,19 @@ section .shapebottom{
         color: var(--mob-text);
         margin: auto;
         font-size: 14px;
-        transform: translateY(-5px);
-    }
-}
-@media (max-width: 980px) {
-    nav {
-        padding-right: 3%;
-        padding-left: 2%;
+        transform: translateY(5px);
     }
 }
     @media (max-width: 768px) {
         nav {
-        padding-left: 14%;
         background-color: var(--text);
+        justify-content: end;
     }
     }
 @media (max-width: 768px) {
     nav .inmob {
         display: flex;
         padding: 0;
-        transform: translateY(19px);
         height: 29px;
     }
 nav .show {
@@ -299,7 +297,7 @@ nav .inmob .show :hover {
 }
 nav .open {
     background-color: var(--main-color);
-    display: flex;
+    display: grid;
     position: absolute;
     top: 80px;
     left: 0px;
@@ -308,9 +306,9 @@ nav .open {
     letter-spacing: 1px;
     height: 0%;
     width: 24px;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-items: center;
+    justify-content: start;
     border-radius: 4px;
     box-shadow: 0 5px 12px 0 rgb(0 0 0);
     overflow: hidden;
@@ -321,27 +319,25 @@ nav .open a{
 nav .open a.active{
     color: var(--hover);
 }
-nav .open li:nth-child(1){
-    padding: 17px 34px;
-} 
-nav .open li:nth-child(2){
-    padding: 17px 15px;
-}
-nav .open li:nth-child(4){
-    border: none;
-} 
 nav .open.list {
     height: 323%;
     width: 147px;
 }
 nav .open li {
-    transform: translate(-19px);
     list-style: none;
     text-transform: uppercase;
     font-size: 15px;
-    padding: 17px 24px;
-    border-bottom: 2px solid #494949;
 }    
+nav .open li::after {
+    content: " ";
+    background-color: var(--hover);
+    width: 100%;
+    height: 2px;
+    display: block;
+    position: absolute;
+    margin-top: 7%;
+    left: 0%;
+}
 }
 @media (min-width: 769px) {
     .icon , nav .open {
@@ -353,8 +349,11 @@ nav .open li {
         height: 60px;
         box-shadow: rgb(0 0 0 / 35%) 0px 2px 12px 2px;
     }
-    nav.bgColor a {
+    nav.bgColor a ,.bgColor .arrow {
         color: var(--mob-text);
+    }
+    nav.bgColor .lang a {
+        color: var(--text);
     }
     nav.bgColor li a.active {
         color: var(--text);
@@ -572,7 +571,7 @@ nav .open li {
     font-size: 16px;
 }
 #contact .contact span:hover{
-    border-bottom: 2px solid var(--hover);
+    border-bottom: 2px solid var(--main-color);
 }
 #contact .contact{
     height: fit-content;
@@ -611,6 +610,7 @@ footer h2 {
     font-size: 19px;
     line-height: 10px;
     font-weight: 400;
+    font-family: 'Open Sans';
 }
 footer p {
     font-size: 11px;
@@ -618,11 +618,6 @@ footer p {
 footer ul {
     display: flex;
     align-items: center;
-}
-@media (max-width: 768px){
-    footer ul {
-        display: none;
-    }
 }
 footer li {
     padding-right: 17px;
@@ -636,4 +631,9 @@ footer li a {
 }
 footer li a:hover {
     color: var(--hover);
+}
+@media (max-width: 768px){
+    footer ul {
+        display: none;
+    }
 }
