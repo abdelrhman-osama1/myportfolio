@@ -100,5 +100,58 @@ window.addEventListener('scroll', () => {
         span.classList.remove('active');
         document.querySelector('nav .open li a[href*= '+ current +']').classList.add('active');
     });
-    });
+});
 
+
+//save the input text in reload
+
+let t = document.getElementById("name");
+let ema = document.getElementById("email");
+let lText = document.getElementsByClassName("area");
+
+t.value = localStorage.getItem("text")
+ema.value = localStorage.getItem("ema")
+lText.value = localStorage.getItem("lText")
+let stop
+document.forms[0].addEventListener("keyup", Event => {
+if (stop) clearTimeout(stop)
+stop = setTimeout(()=> {
+    localStorage.setItem("text", t.value);
+    localStorage.setItem("ema", ema.value);
+    localStorage.setItem("massage", lText.value);
+}, 500)
+})
+
+    //form validation
+    let na = document.getElementById("name");
+    let email = document.getElementById("email");
+    let message = document.querySelector("textarea");
+    document.forms[0].onsubmit = function (e) {
+        let nameValid = false
+        let eValid = false
+        let messageValid = false
+
+        if ( na.value !== "" && email.value !== "" && message.value !== "" ) {
+            nameValid = true
+            eValid = true
+            messageValid = true
+            //delete the input text after sending the email
+            localStorage.removeItem("text")
+        }
+        
+        if ( nameValid === false || eValid === false || messageValid === false) {
+            e.preventDefault();
+        }
+    }
+
+
+// scroll to top button
+    let btn2 = document.querySelector(".pop");
+
+    window.onscroll = function () {
+        if (window.scrollY >= 200 ) {
+            btn2.classList.add("up");
+        }else {
+            btn2.classList.remove("up");
+        }
+    };
